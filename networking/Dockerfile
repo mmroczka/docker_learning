@@ -1,4 +1,6 @@
-FROM node:12-alpine
+FROM node:latest
+
+RUN yarn global add nodemon
 
 # the creators of the linux image we are using made a handy user for us already that
 # also happens to be called "node". it doesn't have anything to do with the node command
@@ -18,4 +20,4 @@ RUN yarn install --frozen-lockfile
 
 COPY --chown=node:node . .
 
-CMD ["node", "index.js"]
+CMD ["nodemon", "index.js"]
